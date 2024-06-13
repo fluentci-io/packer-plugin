@@ -57,5 +57,5 @@ Github Actions:
 - name: Show packer version
   run: |
     type packer
-    packer version
+    packer validate
 ```

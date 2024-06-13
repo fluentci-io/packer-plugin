@@ -54,7 +54,7 @@ Github Actions:
     plugin: packer
     args: |
       setup
-- name: Show packer version
+- name: Validate Packer Template
   run: |
     type packer
     packer validate

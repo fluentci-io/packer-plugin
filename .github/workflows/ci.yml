@@ -22,7 +22,7 @@ jobs:
           args: |
             setup
           working-directory: example
-      - name: Show cue version
+      - name: Show packer version
         run: |
-          type cue
-          cue version
+          type packer
+          packer version

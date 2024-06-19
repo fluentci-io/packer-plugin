@@ -1,5 +1,6 @@
 # Packer Plugin
 
+[![fluentci pipeline](https://shield.fluentci.io/x/packer)](https://pkg.fluentci.io/packer)
 [![ci](https://github.com/fluentci-io/packer-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/fluentci-io/packer-plugin/actions/workflows/ci.yml)
 
 This plugin sets up your CI/CD pipeline with a specific version of [packer](https://www.packer.io/).

@@ -18,6 +18,33 @@ pub fn setup(version: String) -> FnResult<String> {
 }
 
 #[plugin_fn]
+pub fn init(args: String) -> FnResult<String> {
+    let stdout = dag()
+        .pkgx()?
+        .with_exec(vec!["pkgx", "packer", "init", &args])?
+        .stdout()?;
+    Ok(stdout)
+}
+
+#[plugin_fn]
+pub fn inspect(args: String) -> FnResult<String> {
+    let stdout = dag()
+        .pkgx()?
+        .with_exec(vec!["pkgx", "packer", "inspect", &args])?
+        .stdout()?;
+    Ok(stdout)
+}
+
+#[plugin_fn]
+pub fn plugins(args: String) -> FnResult<String> {
+    let stdout = dag()
+        .pkgx()?
+        .with_exec(vec!["pkgx", "packer", "plugins", &args])?
+        .stdout()?;
+    Ok(stdout)
+}
+
+#[plugin_fn]
 pub fn fmt(args: String) -> FnResult<String> {
     let stdout = dag()
         .pkgx()?

@@ -5,4 +5,4 @@ authors = [
 description = "CI/CD Plugin for Packer"
 license = "MIT"
 name = "packer"
-version = "0.1.0"
+version = "0.1.1"

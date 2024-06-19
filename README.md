@@ -22,6 +22,9 @@ fluentci run --wasm packer setup
 | fix          | Fixes templates from old versions of packer          |
 | fmt          | Rewrites HCL2 config files to canonical format       |
 | hcl2_upgrade | Transform a JSON template into an HCL2 configuration |
+| init         | Install missing plugins or upgrade plugins           |
+| inspect      | See components of a template                         |
+| plugins      | Interact with Packer plugins and catalog             |
 | validate     | Check that a template is valid                       |
 
 ## Code Usage

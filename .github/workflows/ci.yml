@@ -5,7 +5,10 @@ on:
       - main
 jobs:
   example:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - name: Setup example
@@ -14,7 +17,14 @@ jobs:
           cp -r src example/.fluentci
           cp Cargo.toml example/.fluentci
           cp Cargo.lock example/.fluentci
+      - name: Uninstall packer (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
           sudo rm /usr/local/bin/packer
+      - name: Uninstall packer (macOS)
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew uninstall packer
       - name: Setup Fluent CI CLI
         uses: fluentci-io/setup-fluentci@v5
         with:
@@ -23,6 +33,8 @@ jobs:
           args: |
             setup
           working-directory: example
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Show packer version
         run: |
           type packer
